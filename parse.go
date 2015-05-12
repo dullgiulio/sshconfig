@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"io"
-	"os"
 	"strings"
 	"unicode/utf8"
 )
@@ -115,6 +114,8 @@ func Parse(r io.Reader) ([]*Section, error) {
 
 	token := <-tokens
 	if token.val != "Host" {
+		for range tokens {
+		}
 		return nil, fmt.Errorf("line %s: Error expected Host", token.line)
 	}
 
