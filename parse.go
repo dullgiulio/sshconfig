@@ -116,7 +116,7 @@ func Parse(r io.Reader) ([]*Section, error) {
 	if token.val != "Host" {
 		for range tokens {
 		}
-		return nil, fmt.Errorf("line %s: Error expected Host", token.line)
+		return nil, fmt.Errorf("line %s: expected Host", token.line)
 	}
 
 	for token := range tokens {
