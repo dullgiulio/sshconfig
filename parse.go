@@ -53,11 +53,10 @@ func parseLine(nline int, line string, tokens chan<- token) {
 		}
 		end = end + s
 	}
-	if end > 0 {
-		tokens <- token{nline, line[0:end]}
-	} else {
+	if end <= 0 {
 		return
 	}
+	tokens <- token{nline, line[0:end]}
 
 	line = strings.Trim(line[end:], spaces)
 	for end = 0; end < len(line); {
